@@ -5,9 +5,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotSame;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 /**
  * This class is Junit test for ConvertDigits class.
@@ -48,7 +46,7 @@ public class ConvertDigitsTest {
     @Test
     public void number_in_four_digit() {
         String result = convertDigits.convertThreeDigit(999).toString();
-        assertEquals("nine hundred ninety-nine", result);
+        assertEquals("nine hundred and ninety-nine", result);
     }
 
     @Test(expected = ArrayIndexOutOfBoundsException.class)

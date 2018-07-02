@@ -10,7 +10,7 @@ import static com.raj.numbertowords.utils.StringConstants.TEN_NAMES;
  * Number range between 0 to 999
  *
  * @author Raj
- * @version 1.0
+ * @version 1.1
  * @since 2018-06-29
  */
 public class ConvertDigits implements IConvertDigits {
@@ -22,7 +22,7 @@ public class ConvertDigits implements IConvertDigits {
      * @return StringBuilder This returns words in British english
      */
     @Override
-    public StringBuilder convertThreeDigit(int num) throws ArrayIndexOutOfBoundsException {
+    public StringBuilder convertThreeDigit(int num) {
         IConvertDigits.logThreeDigits();
         StringBuilder s1 = new StringBuilder(LOW_NAMES[num / 100]).append(" hundred");
         StringBuilder s2 = new StringBuilder(convertTwoDigit(num % 100));
@@ -31,10 +31,9 @@ public class ConvertDigits implements IConvertDigits {
         } else if (num % 100 == 0) {
             return s1;
         } else {
-            return s1.append(" ").append(s2);
+            return s1.append(" and ").append(s2);
         }
-
-        }
+    }
 
     /**
      * This method take integer number and will return words in British english
@@ -44,7 +43,7 @@ public class ConvertDigits implements IConvertDigits {
      * @return StringBuilder This returns words in British english
      */
     @Override
-    public StringBuilder convertTwoDigit(int num) throws ArrayIndexOutOfBoundsException{
+    public StringBuilder convertTwoDigit(int num) {
         IConvertDigits.logTwoDigits();
         if (num < 20) {
             return new StringBuilder(LOW_NAMES[num]);
